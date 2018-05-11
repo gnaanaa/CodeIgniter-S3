@@ -57,13 +57,17 @@ h2. Example Usage
 
 <pre><code>
   // Load Library
-  $this->load->library('s3');
+  $this->load->library('s3_functions');
   
-  // Create a Bucket
-  var_dump($this->s3->putBucket('My-Bucket', $this->s3->ACL_PUBLIC_READ));
+  // Upload a file
+  var_dump($this->s3_functions->upload_file($upload_info['full_path'], $folder.'/'));
   
-  // List Buckets
-  var_dump($this->s3->listBuckets());
+  // List files
+  var_dump($this->s3_functions->get_files($folder));
+  
+  // Delete file
+  var_dump($this->s3_functions->delete_file($file_uri)); // without S3 URL and Bucket names
+  
 </code></pre>
 
 h2. References
